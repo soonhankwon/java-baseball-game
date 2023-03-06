@@ -35,3 +35,6 @@
 - 입력된 결과 출력 기능
 - 게임 새로 시작 기능
 - 게임 종료 기능
+
+- git의 commit 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위로 추가한다.
+    - 참고문서: [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)
