@@ -11,7 +11,7 @@ import java.util.Collections;
 public class RandomNumberGeneratorTest {
     @Test
     @DisplayName("1 ~ 9 범위의 중복되지 않은 랜덤 숫자 리스트 생성 테스트")
-    void createRandomNumberDedupe() {
+    void createDistinctRandomNumber() {
         ArrayList<String> numbers = new ArrayList<>(Arrays.asList("1","2","3","4","5","6","7","8","9"));
         shuffle(numbers);
         System.out.println(numbers);

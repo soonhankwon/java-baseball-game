@@ -6,7 +6,7 @@ public class BaseballGameApp {
         String input = "";
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
         String randomNumber = String.join("",randomNumberGenerator
-                .createRandomNumberDedupe()
+                .createDistinctRandomNumber()
                 .subList(0,3));
 
         while (!input.equals(randomNumber)) {
