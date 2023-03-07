@@ -14,9 +14,11 @@ public class BaseballGameApp {
 
         Scanner scanner = new Scanner(System.in);
         String startOrEnd = scanner.nextLine();
-        if(startOrEnd.equals("1")) {
+
+        if (startOrEnd.equals("1")) {
             main(args);
-        } else {
+        }
+        else if (startOrEnd.equals("2")) {
             scanner.close();
         }
     }
