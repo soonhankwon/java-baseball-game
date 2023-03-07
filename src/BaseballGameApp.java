@@ -4,13 +4,10 @@ import java.util.Scanner;
 public class BaseballGameApp {
     public static void main(String[] args) {
         String input = "";
-        int min = 1;
-        int max = 9;
-        String number1 = String.valueOf((int) (Math.random() * (max - min + 1)) + min);
-        String number2 = String.valueOf((int) (Math.random() * (max - min + 1)) + min);
-        String number3 = String.valueOf((int) (Math.random() * (max - min + 1)) + min);
-
-        String randomNumber = number1 + number2 + number3;
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        String randomNumber = String.join("",randomNumberGenerator
+                .createRandomNumberDedupe()
+                .subList(0,3));
 
         while (!input.equals(randomNumber)) {
             Scanner scanner = new Scanner(System.in);
