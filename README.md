@@ -35,7 +35,7 @@
   - Scanner 사용
 - 입력값이 유효한 1~9 인지 검증해서 틀리면 다시 입력하는 기능
   - BaseballValidator 클래스의 validateInput() 로 구현
-  - 정규표현식 사용 : `"^[1**-**9]{3}$"`
+  - 정규표현식 사용 : "^[1-9]{3}$"
 - 컴퓨터의 랜덤 숫자 생성 기능 (서로 다른 숫자 생성)
   - RandomNumberGenerator 클래스의 createDistinctRandomNumber() 로 구현
   - Collections.shuffle 사용
