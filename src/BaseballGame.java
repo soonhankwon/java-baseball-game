@@ -11,8 +11,4 @@ public class BaseballGame {
             baseballValidator.decideBallAndStrike(input, randomNumber);
         }
     }
-
-    void end() {
-
-    }
 }
