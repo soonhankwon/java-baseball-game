@@ -1,9 +1,6 @@
 import java.util.Scanner;
 
 public class BaseballGame {
-    String computerNumber;
-    String userNumber;
-
     void play(String input, String randomNumber) {
         BaseballValidator baseballValidator = new BaseballValidator();
         while (!input.equals(randomNumber)) {
@@ -17,13 +14,5 @@ public class BaseballGame {
 
     void end() {
 
-    }
-
-    public void setComputerNumber(String computerNumber) {
-        this.computerNumber = computerNumber;
-    }
-
-    public void setUserNumber(String userNumber) {
-        this.userNumber = userNumber;
     }
 }
