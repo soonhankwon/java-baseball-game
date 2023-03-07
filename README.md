@@ -31,12 +31,18 @@
 ## 기능 목록 및 commit 로그 요구사항
 
 - 숫자 입력 기능
+  - BaseballGame 클래스의 play() 메서드로 구현
+  - Scanner 사용
+- 입력값이 유효한 1~9 인지 검증해서 틀리면 다시 입력하는 기능
+  - BaseballValidator 클래스의 validateInput() 로 구현
+  - 정규표현식 사용 : `"^[1**-**9]{3}$"`
 - 컴퓨터의 랜덤 숫자 생성 기능 (서로 다른 숫자 생성)
-  - RandomNumberGenerator Class 구현 완료
+  - RandomNumberGenerator 클래스의 createDistinctRandomNumber() 로 구현
+  - Collections.shuffle 사용
 - 입력된 숫자 일치 판별 기능
+  - BaseballValidator 클래스의  decideBallAndStrike() 로 구현
 - 입력된 결과 출력 기능
-- 게임 새로 시작 기능
-- 게임 종료 기능
+  - BaseballValidator 클래스의  printResult() 로 구현
 
-- git의 commit 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위로 추가한다.
+- git 의 commit 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위로 추가한다.
     - 참고문서: [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)
