@@ -4,10 +4,6 @@ public class BaseballGame {
     String computerNumber;
     String userNumber;
 
-    void start() {
-        play();
-    }
-
     void createComputerNumber() {
         int min = 1;
         int max = 9;
