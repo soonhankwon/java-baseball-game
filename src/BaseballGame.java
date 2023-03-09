@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class BaseballGame {
-    void play(String input, String randomNumber) {
+    void play(String randomNumber) {
         BaseballValidator baseballValidator = new BaseballValidator();
+        String input = "";
         while (!input.equals(randomNumber)) {
             Scanner scanner = new Scanner(System.in);
             input = scanner.nextLine();
