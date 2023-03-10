@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class ValidateInputTest {
     InputValidator validator;
@@ -31,8 +32,29 @@ public class ValidateInputTest {
 
     @Test
     @DisplayName("숫자 두개를 컴마(,) 구분자로 입력할 경우 두 숫자의 합을 반환 테스트")
-    void ifInputTwoNumbersAndComma() {
+    void ifInputNumbersAndComma() {
         int ret1 = validator.validateInput("1,2");
         assertThat(ret1).isEqualTo(3);
+    }
+
+    @Test
+    @DisplayName("구분자를 컴마(,) 이외에 콜론(:)을 사용 테스트")
+    void ifInputNumbersAndCommaOrColon() {
+        int ret1 = validator.validateInput("1,2:3");
+        assertThat(ret1).isEqualTo(6);
+    }
+
+    @Test
+    @DisplayName("“//”와 “\n” 문자 사이에 커스텀 구분자를 지정 테스트")
+    public void splitAndSum_custom_delimiter() throws Exception {
+        int ret1 = validator.validateInput("//;\n1;2;3");
+        assertThat(ret1).isEqualTo(6);
+    }
+
+    @Test
+    @DisplayName("음수 전달 시 런타임익셉션 예외 테스트")
+    public void splitAndSum_negative() throws Exception {
+        assertThatThrownBy(() -> validator.validateInput("-1,2,3"))
+                .isInstanceOf(RuntimeException.class);
     }
 }
