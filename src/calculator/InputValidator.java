@@ -5,6 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InputValidator {
+    public static final String customExpression = "//(.)\n(.*)";
     public int validateInput(String text) {
         if (text == null || text.isEmpty()) {
             return 0;
@@ -16,7 +17,7 @@ public class InputValidator {
             return Integer.parseInt(text);
         }
         if (isContainExpression(text)) {
-            return Arrays.stream(text.split(",|:"))
+            return Arrays.stream(text.split(customExpression))
                     .mapToInt(Integer::parseInt)
                     .sum();
         }
@@ -34,7 +35,7 @@ public class InputValidator {
     }
 
     private boolean isCustomExpression(String text) {
-        return true;
+        return text.matches(customExpression);
     }
 
     private boolean isContainExpression(String text) {
