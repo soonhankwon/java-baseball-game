@@ -6,40 +6,30 @@ import java.util.regex.Pattern;
 
 public class InputValidator {
     public int validateInput(String text) {
-        if (text == null || text.isEmpty()) {
+        if (isBlank(text)) {
             return 0;
         }
+        return sum(split(text));
+    }
+
+    private boolean isBlank(String text) {
+        return text == null || text.isEmpty();
+    }
+
+    private String[] split(String text) {
         if(text.contains("-")) {
             throw new RuntimeException();
         }
-        if (text.length() == 1) {
-            return Integer.parseInt(text);
+        Matcher m = Pattern.compile("//(.)\n(.*)").matcher(text);
+        if (m.find()) {
+            return m.group(2).split(m.group(1));
         }
-        if(isCustomExpression(text)) {
-            Matcher m = Pattern.compile("//(.)\n(.*)").matcher(text);
-            if (m.find()) {
-                String customDelimiter = m.group(1);
-                String[] tokens= m.group(2).split(customDelimiter);
-                return Arrays.stream(tokens)
-                        .mapToInt(Integer::parseInt)
-                        .sum();
-            }
-        }
-        if (isContainExpression(text)) {
-            return Arrays.stream(text.split(",|:"))
-                    .mapToInt(Integer::parseInt)
-                    .sum();
-        }
-        return 0;
+        return text.split(",|:");
     }
 
-    private boolean isCustomExpression(String text) {
-        return text.matches("//(.)\n(.*)");
-    }
-
-    private boolean isContainExpression(String text) {
-        return (text.contains(",") || text.contains(":"));
+    private int sum(String[] text) {
+        return Arrays.stream(text)
+                .mapToInt(Integer::parseInt)
+                .sum();
     }
 }
-
-

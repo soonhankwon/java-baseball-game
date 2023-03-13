@@ -47,8 +47,8 @@ public class ValidateInputTest {
     @Test
     @DisplayName("“//”와 “\n” 문자 사이에 커스텀 구분자를 지정 테스트")
     public void splitAndSum_custom_delimiter() throws Exception {
-        int ret1 = validator.validateInput("//;\n1;2;3");
-        assertThat(ret1).isEqualTo(6);
+        int ret1 = validator.validateInput("//;\n3;2;3");
+        assertThat(ret1).isEqualTo(8);
     }
 
     @Test
